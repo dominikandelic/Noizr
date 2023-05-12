@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "838528176186",
+    "project_id": "noizr-8d96c",
+    "storage_bucket": "noizr-8d96c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838528176186:android:dc286cd20b1bc4c2446503",
+        "android_client_info": {
+          "package_name": "com.dandelic.noizr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "838528176186-kl6ia3o7qt3d0ph9j1v9k5qk1pedq2rs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0I3Zn1IsaEU5_C2GwZ5Q9zdstPh2f2bY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "838528176186-kl6ia3o7qt3d0ph9j1v9k5qk1pedq2rs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
