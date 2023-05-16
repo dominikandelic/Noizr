@@ -4,6 +4,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dandelic.noizr.components.TopBar
@@ -25,6 +26,7 @@ fun VerifyEmailScreen(
     val context = LocalContext.current
 
     Scaffold(
+        backgroundColor = Color.DarkGray,
         topBar = {
             TopBar(
                 title = VERIFY_EMAIL_SCREEN,

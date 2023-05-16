@@ -2,6 +2,7 @@ package com.dandelic.noizr.presentation.forgot_password
 
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.dandelic.noizr.core.Constants.RESET_PASSWORD_MESSAGE
@@ -18,6 +19,7 @@ fun ForgotPasswordScreen(
     val context = LocalContext.current
 
     Scaffold(
+        backgroundColor = Color.DarkGray,
         topBar = {
             ForgotPasswordTopBar(
                 navigateBack = navigateBack

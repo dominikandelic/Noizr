@@ -8,6 +8,7 @@ object Constants {
     //Buttons
     const val SIGN_IN = "Sign in"
     const val RESET_PASSWORD = "Reset"
+    const val UPDATE_PASSWORD = "Update"
     const val SIGN_UP = "Sign up"
     const val SIGN_OUT = "Sign out"
     const val REVOKE_ACCESS = "Revoke Access"
@@ -39,6 +40,7 @@ object Constants {
     const val VERIFY_EMAIL_MESSAGE = "We've sent you an email with a link to verify the email."
     const val EMAIL_NOT_VERIFIED_MESSAGE = "Your email is not verified."
     const val RESET_PASSWORD_MESSAGE = "We've sent you an email with a link to reset the password."
+    const val UPDATE_PASSWORD_MESSAGE = "You've successfully updated your password."
     const val REVOKE_ACCESS_MESSAGE = "You need to re-authenticate before revoking the access."
     const val ACCESS_REVOKED_MESSAGE = "Your access has been revoked."
 

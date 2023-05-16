@@ -40,6 +40,15 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun updateUserPassword(password: String): UpdatePasswordResponse {
+        return try {
+            auth.currentUser?.updatePassword(password)?.await()
+            Success(true)
+        } catch (e: Exception) {
+            Failure(e)
+        }
+    }
+
     override suspend fun firebaseSignInWithEmailAndPassword(
         email: String, password: String
     ): SignInResponse {

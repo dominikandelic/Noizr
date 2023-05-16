@@ -31,6 +31,7 @@ fun PasswordField(
             onPasswordValueChange(newValue)
         },
         colors = TextFieldDefaults.textFieldColors(
+            textColor = Color.White,
             focusedIndicatorColor = Color.LightGray,
             unfocusedIndicatorColor = Color.White,
             focusedLabelColor = Color.White,

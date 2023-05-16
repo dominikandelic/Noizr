@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.StateFlow
 
 typealias SignUpResponse = Response<Boolean>
 typealias SendEmailVerificationResponse = Response<Boolean>
+typealias UpdatePasswordResponse = Response<Boolean>
 typealias SignInResponse = Response<Boolean>
 typealias ReloadUserResponse = Response<Boolean>
 typealias SendPasswordResetEmailResponse = Response<Boolean>
@@ -19,6 +20,8 @@ interface AuthRepository {
     suspend fun firebaseSignUpWithEmailAndPassword(email: String, password: String): SignUpResponse
 
     suspend fun sendEmailVerification(): SendEmailVerificationResponse
+
+    suspend fun updateUserPassword(password: String): UpdatePasswordResponse
 
     suspend fun firebaseSignInWithEmailAndPassword(email: String, password: String): SignInResponse
 

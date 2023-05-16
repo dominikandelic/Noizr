@@ -18,16 +18,19 @@ import kotlinx.coroutines.job
 @Composable
 fun EmailField(
     email: TextFieldValue,
-    onEmailValueChange: (newValue: TextFieldValue) -> Unit
+    onEmailValueChange: (newValue: TextFieldValue) -> Unit,
+    enabled: Boolean = true
 ) {
     val focusRequester = FocusRequester()
 
     OutlinedTextField(
+        enabled = enabled,
         value = email,
         onValueChange = { newValue ->
             onEmailValueChange(newValue)
         },
         colors = TextFieldDefaults.textFieldColors(
+            textColor = Color.White,
             focusedIndicatorColor = Color.LightGray,
             unfocusedIndicatorColor = Color.White,
             focusedLabelColor = Color.White,

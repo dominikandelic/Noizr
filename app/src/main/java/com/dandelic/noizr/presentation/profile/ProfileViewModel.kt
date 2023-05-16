@@ -12,6 +12,7 @@ import com.dandelic.noizr.domain.model.Response.Success
 import com.dandelic.noizr.domain.repository.AuthRepository
 import com.dandelic.noizr.domain.repository.ReloadUserResponse
 import com.dandelic.noizr.domain.repository.RevokeAccessResponse
+import com.dandelic.noizr.domain.repository.UpdatePasswordResponse
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,6 +24,9 @@ class ProfileViewModel @Inject constructor(
     var reloadUserResponse by mutableStateOf<ReloadUserResponse>(Success(false))
         private set
 
+    var updatePasswordResponse by mutableStateOf<UpdatePasswordResponse>(Success(false))
+        private set
+
     fun reloadUser() = viewModelScope.launch {
         reloadUserResponse = Loading
         reloadUserResponse = repo.reloadFirebaseUser()
@@ -32,8 +36,15 @@ class ProfileViewModel @Inject constructor(
 
     fun signOut() = repo.signOut()
 
+    fun getUserEmail() = repo.currentUser?.email
+
     fun revokeAccess() = viewModelScope.launch {
         revokeAccessResponse = Loading
         revokeAccessResponse = repo.revokeAccess()
+    }
+
+    fun updateUserPassword(password: String) = viewModelScope.launch {
+        updatePasswordResponse = Loading
+        updatePasswordResponse = repo.updateUserPassword(password)
     }
 }
