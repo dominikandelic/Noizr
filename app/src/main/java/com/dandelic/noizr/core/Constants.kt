@@ -1,5 +1,7 @@
 package com.dandelic.noizr.core
 
+import com.dandelic.noizr.navigation.main.MainScreen
+
 object Constants {
     //App
     const val APP_NAME = "Noizr"
@@ -9,6 +11,7 @@ object Constants {
     const val SIGN_IN = "Sign in"
     const val RESET_PASSWORD = "Reset"
     const val UPDATE_PASSWORD = "Update"
+    const val NAVIGATE = "Navigate"
     const val SIGN_UP = "Sign up"
     const val SIGN_OUT = "Sign out"
     const val REVOKE_ACCESS = "Revoke Access"
@@ -19,6 +22,7 @@ object Constants {
     const val SIGN_UP_SCREEN = "Sign up"
     const val VERIFY_EMAIL_SCREEN = "Verify email"
     const val PROFILE_SCREEN = "Profile"
+    const val HOME_SCREEN = "Home"
 
     //Labels
     const val EMAIL_LABEL = "Email"
@@ -46,4 +50,11 @@ object Constants {
 
     //Error Messages
     const val SENSITIVE_OPERATION_MESSAGE = "This operation is sensitive and requires recent authentication. Log in again before retrying this request."
+
+
+    // Bottom Navigation Items
+    val BOTTOM_NAV_ITEMS = listOf(
+        MainScreen.Home,
+        MainScreen.Profile
+    )
 }

@@ -9,10 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.navigation.NavHostController
+import com.dandelic.noizr.navigation.auth.AuthScreen
+import com.dandelic.noizr.navigation.main.MainScreen
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import dagger.hilt.android.AndroidEntryPoint
-import com.dandelic.noizr.navigation.NavGraph
-import com.dandelic.noizr.navigation.Screen.*
+import com.dandelic.noizr.navigation.RootNavGraph
 
 @AndroidEntryPoint
 @ExperimentalAnimationApi
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             navController = rememberAnimatedNavController()
-            NavGraph(
+            RootNavGraph(
                 navController = navController
             )
             AuthState()
@@ -47,21 +48,21 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun NavigateToSignInScreen() = navController.navigate(SignInScreen.route) {
+    private fun NavigateToSignInScreen() = navController.navigate(AuthScreen.SignIn.route) {
         popUpTo(navController.graph.id) {
             inclusive = true
         }
     }
 
     @Composable
-    private fun NavigateToProfileScreen() = navController.navigate(ProfileScreen.route) {
+    private fun NavigateToProfileScreen() = navController.navigate(MainScreen.Profile.route) {
         popUpTo(navController.graph.id) {
             inclusive = true
         }
     }
 
     @Composable
-    private fun NavigateToVerifyEmailScreen() = navController.navigate(VerifyEmailScreen.route) {
+    private fun NavigateToVerifyEmailScreen() = navController.navigate(AuthScreen.VerifyEmail.route) {
         popUpTo(navController.graph.id) {
             inclusive = true
         }
