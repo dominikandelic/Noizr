@@ -11,8 +11,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.window.PopupProperties
-import com.dandelic.noizr.core.Constants.REVOKE_ACCESS
+import com.dandelic.noizr.core.Constants.DELETE_PROFILE
 import com.dandelic.noizr.core.Constants.SIGN_OUT
 
 
@@ -20,7 +19,7 @@ import com.dandelic.noizr.core.Constants.SIGN_OUT
 fun TopBar(
     title: String,
     signOut: () -> Unit,
-    revokeAccess: () -> Unit
+    deleteProfile: () -> Unit
 ) {
     var openMenu by remember { mutableStateOf(false) }
 
@@ -72,12 +71,12 @@ fun TopBar(
                 }
                 DropdownMenuItem(
                     onClick = {
-                        revokeAccess()
+                        deleteProfile()
                         openMenu = !openMenu
                     }
                 ) {
                     Text(
-                        text = REVOKE_ACCESS
+                        text = DELETE_PROFILE
                     )
                 }
             }

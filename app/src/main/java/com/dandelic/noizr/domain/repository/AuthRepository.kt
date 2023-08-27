@@ -11,7 +11,7 @@ typealias UpdatePasswordResponse = Response<Boolean>
 typealias SignInResponse = Response<Boolean>
 typealias ReloadUserResponse = Response<Boolean>
 typealias SendPasswordResetEmailResponse = Response<Boolean>
-typealias RevokeAccessResponse = Response<Boolean>
+typealias DeleteProfileResponse = Response<Boolean>
 typealias AuthStateResponse = StateFlow<Boolean>
 
 interface AuthRepository {
@@ -31,7 +31,7 @@ interface AuthRepository {
 
     fun signOut()
 
-    suspend fun revokeAccess(): RevokeAccessResponse
+    suspend fun deleteProfile(): DeleteProfileResponse
 
     fun getAuthState(viewModelScope: CoroutineScope): AuthStateResponse
 }

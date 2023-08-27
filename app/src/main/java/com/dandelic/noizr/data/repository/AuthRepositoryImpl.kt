@@ -80,7 +80,7 @@ class AuthRepositoryImpl @Inject constructor(
 
     override fun signOut() = auth.signOut()
 
-    override suspend fun revokeAccess(): RevokeAccessResponse {
+    override suspend fun deleteProfile(): DeleteProfileResponse {
         return try {
             auth.currentUser?.delete()?.await()
             Success(true)

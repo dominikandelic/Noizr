@@ -13,8 +13,8 @@ import com.dandelic.noizr.core.Constants
 import com.dandelic.noizr.core.Constants.PROFILE_SCREEN
 import com.dandelic.noizr.core.Utils
 import com.dandelic.noizr.navigation.main.components.BottomTabNavigation
+import com.dandelic.noizr.presentation.profile.components.DeleteProfile
 import com.dandelic.noizr.presentation.profile.components.ProfileContent
-import com.dandelic.noizr.presentation.profile.components.RevokeAccess
 import com.dandelic.noizr.presentation.profile.components.UpdatePassword
 
 @Composable
@@ -35,8 +35,8 @@ fun ProfileScreen(
                 signOut = {
                     viewModel.signOut()
                 },
-                revokeAccess = {
-                    viewModel.revokeAccess()
+                deleteProfile = {
+                    viewModel.deleteProfile()
                 }
             )
         },
@@ -45,14 +45,13 @@ fun ProfileScreen(
                 email = viewModel.getUserEmail(),
                 updatePassword = { password -> viewModel.updateUserPassword(password) },
                 padding = padding,
-                navigateToHome = navigateToHome
             )
         },
         scaffoldState = scaffoldState,
         bottomBar = { BottomTabNavigation(navController) }
     )
 
-    RevokeAccess(
+    DeleteProfile(
         scaffoldState = scaffoldState,
         coroutineScope = coroutineScope,
         signOut = {

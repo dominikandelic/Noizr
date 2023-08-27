@@ -12,7 +12,7 @@ import com.dandelic.noizr.core.Constants.EMAIL_NOT_VERIFIED_MESSAGE
 import com.dandelic.noizr.core.Constants.VERIFY_EMAIL_SCREEN
 import com.dandelic.noizr.core.Utils.Companion.showMessage
 import com.dandelic.noizr.presentation.profile.ProfileViewModel
-import com.dandelic.noizr.presentation.profile.components.RevokeAccess
+import com.dandelic.noizr.presentation.profile.components.DeleteProfile
 import com.dandelic.noizr.presentation.verify_email.components.ReloadUser
 import com.dandelic.noizr.presentation.verify_email.components.VerifyEmailContent
 
@@ -33,8 +33,8 @@ fun VerifyEmailScreen(
                 signOut = {
                     viewModel.signOut()
                 },
-                revokeAccess = {
-                    viewModel.revokeAccess()
+                deleteProfile = {
+                    viewModel.deleteProfile()
                 }
             )
         },
@@ -59,7 +59,7 @@ fun VerifyEmailScreen(
         }
     )
 
-    RevokeAccess(
+    DeleteProfile(
         scaffoldState = scaffoldState,
         coroutineScope = coroutineScope,
         signOut = {

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Noizr</string>
+    <string name="quiet_image_description">A quiet town</string>
 </resources>

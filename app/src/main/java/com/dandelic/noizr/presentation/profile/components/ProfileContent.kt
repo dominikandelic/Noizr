@@ -30,7 +30,6 @@ fun ProfileContent(
     email: String?,
     updatePassword: (password: String) -> Unit,
     padding: PaddingValues,
-    navigateToHome: () -> Unit
 ) {
     var password by rememberSaveable(
         stateSaver = TextFieldValue.Saver
@@ -71,20 +70,6 @@ fun ProfileContent(
         ) {
             Text(
                 text = Constants.UPDATE_PASSWORD,
-                fontSize = 15.sp
-            )
-        }
-        Button(
-            colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color.White,
-                contentColor = Color.Black
-            ),
-            onClick = {
-                navigateToHome()
-            }
-        ) {
-            Text(
-                text = Constants.NAVIGATE,
                 fontSize = 15.sp
             )
         }

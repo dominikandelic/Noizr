@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
         android:name=".NoizrApp"
         android:allowBackup="true"
@@ -13,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Noizr"
         tools:targetApi="31">
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyB0I3Zn1IsaEU5_C2GwZ5Q9zdstPh2f2bY"/>
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true">

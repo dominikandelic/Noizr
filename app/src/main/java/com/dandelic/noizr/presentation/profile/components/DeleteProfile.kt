@@ -6,20 +6,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
 import com.dandelic.noizr.components.ProgressBar
-import com.dandelic.noizr.core.Constants.ACCESS_REVOKED_MESSAGE
-import com.dandelic.noizr.core.Constants.REVOKE_ACCESS_MESSAGE
+import com.dandelic.noizr.core.Constants.DELETE_PROFILE_MESSAGE
+import com.dandelic.noizr.core.Constants.PROFILE_DELETED_MESSAGE
 import com.dandelic.noizr.core.Constants.SENSITIVE_OPERATION_MESSAGE
 import com.dandelic.noizr.core.Constants.SIGN_OUT
 import com.dandelic.noizr.core.Utils.Companion.print
 import com.dandelic.noizr.core.Utils.Companion.showMessage
-import com.dandelic.noizr.domain.model.Response.*
+import com.dandelic.noizr.domain.model.Response.Failure
+import com.dandelic.noizr.domain.model.Response.Loading
+import com.dandelic.noizr.domain.model.Response.Success
 import com.dandelic.noizr.presentation.profile.ProfileViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @Composable
-fun RevokeAccess(
+fun DeleteProfile(
     viewModel: ProfileViewModel = hiltViewModel(),
     scaffoldState: ScaffoldState,
     coroutineScope: CoroutineScope,
@@ -27,9 +29,9 @@ fun RevokeAccess(
 ) {
     val context = LocalContext.current
 
-    fun showRevokeAccessMessage() = coroutineScope.launch {
+    fun showDeleteProfileMessage() = coroutineScope.launch {
         val result = scaffoldState.snackbarHostState.showSnackbar(
-            message = REVOKE_ACCESS_MESSAGE,
+            message = DELETE_PROFILE_MESSAGE,
             actionLabel = SIGN_OUT
         )
         if (result == SnackbarResult.ActionPerformed) {
@@ -37,21 +39,22 @@ fun RevokeAccess(
         }
     }
 
-    when(val revokeAccessResponse = viewModel.revokeAccessResponse) {
+    when (val deleteProfileResponse = viewModel.deleteProfileResponse) {
         is Loading -> ProgressBar()
         is Success -> {
-            val isAccessRevoked = revokeAccessResponse.data
+            val isAccessRevoked = deleteProfileResponse.data
             LaunchedEffect(isAccessRevoked) {
                 if (isAccessRevoked) {
-                    showMessage(context, ACCESS_REVOKED_MESSAGE)
+                    showMessage(context, PROFILE_DELETED_MESSAGE)
                 }
             }
         }
-        is Failure -> revokeAccessResponse.apply {
+
+        is Failure -> deleteProfileResponse.apply {
             LaunchedEffect(e) {
                 print(e)
                 if (e.message == SENSITIVE_OPERATION_MESSAGE) {
-                    showRevokeAccessMessage()
+                    showDeleteProfileMessage()
                 }
             }
         }
